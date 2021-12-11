@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 
-function Form({ setItems }) {
+function InputArea({ addItem }) {
   const [text, setText] = useState("");
-  //   const [items, setItems] = useState([]);
 
   function handleChange(e) {
     setText(e.target.value);
   }
 
-  function addItem() {
-    setItems((prevState) => [...prevState, text]);
-    setText(""); //empty the input after submit the text into the <li>
+  function handleAddItem() {
+    addItem(text);
+    setText(""); //empty the input after submit the text into the
   }
 
   return (
     <div className="form">
       <input onChange={handleChange} value={text} type="text" />
-      <button onClick={addItem}>
+      <button onClick={handleAddItem}>
         <span>Add</span>
       </button>
     </div>
   );
 }
 
-export default Form;
+export default InputArea;

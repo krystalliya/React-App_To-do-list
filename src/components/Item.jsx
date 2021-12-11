@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Item({ item }) {
-  const [isDone, setIsDone] = useState(false);
-
-  function handleClick() {
-    setIsDone((prevValue) => {
-      return !prevValue;
-    });
-  }
-
+function Item({ item, onChecked, id }) {
   return (
-    <li
-      onClick={handleClick}
-      style={{ textDecoration: isDone ? "line-through" : "none" }}
+    <div
+      onClick={() => {
+        onChecked(id);
+      }}
     >
-      {item}
-    </li>
+      <li>{item}</li>
+    </div>
   );
 }
 
